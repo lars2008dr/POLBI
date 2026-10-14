@@ -1,1 +1,6 @@
-
+it clone https://github.com/lars2008dr/POLBI.git
+cd POLBI
+git checkout -b remove-delete-file   # create a branch for the change
+git rm delete                         # remove the file (path relative to repo root)
+git commit -m "Remove file 'delete'"
+git push --set-upstream origin remove-delete-file
