@@ -182,3 +182,40 @@ img {
         margin: 18px auto;
     }
 }
+/*=================================
+   BRONNEN
+================================= */
+.bronnen {
+    margin: 40px auto;
+    padding: 0 22px;
+    max-width: 1100px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.bronnen h2 {
+    color: #e5edf7;
+}
+
+.bronnen ul {
+    display: table;
+    margin: 0 auto;
+    padding-left: 25px;
+    text-align: left;
+}
+
+.bronnen li {
+    margin-bottom: 10px;
+}
+
+
+.bronnen a {
+    color: #40d9d0;
+    text-decoration: underline;
+}
+
+.bronnen a:hover {
+    color: white;
+}
