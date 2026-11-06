@@ -1,10 +1,13 @@
+
 /* =================================
-   CSS MET BEHULP VAN AI OM DE PAGINA MOOIER TE MAKEN EN OM TE LEREN CODE SCHRIJVEN EN BERGIJPEN
+   CSS VOOR DE WEBSITE
+   Gemaakt met hulp van AI om de website
+   mooier te maken en CSS te leren begrijpen.
 ================================= */
 
 
 /* =================================
-   main css
+   ALGEMENE OPMAAK
 ================================= */
 
 * {
@@ -23,8 +26,9 @@ body {
     line-height: 1.7;
 }
 
+
 /* =================================
-   bovekant css
+   HEADER
 ================================= */
 
 header {
@@ -36,8 +40,8 @@ header {
 
 header h1 {
     margin: 0 0 8px;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    color: #ffffff;
+    font-size: 3rem;
+    color: white;
     letter-spacing: 1px;
 }
 
@@ -47,8 +51,9 @@ header h3 {
     font-weight: 400;
 }
 
+
 /* =================================
-   css pagina navigatie
+   PAGINA NAVIGATIE
 ================================= */
 
 nav {
@@ -76,8 +81,9 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
+
 /* =================================
-   CSS VOOR DE TEKST EN INHOUD VAN PAGINA
+   HOOFDINHOUD
 ================================= */
 
 main {
@@ -86,12 +92,12 @@ main {
     padding: 0 22px;
 }
 
+
 /* =================================
-   de aparte bloken 
+   TEKSTBLOKKEN
 ================================= */
 
 section {
-    max-width: 1100px;
     margin: 25px auto;
     padding: 25px 30px;
     background-color: #131f31;
@@ -99,8 +105,7 @@ section {
     border-left: 4px solid #20c9b0;
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    transition: border-color 0.25s ease,
-                transform 0.25s ease;
+    transition: 0.25s ease;
 }
 
 section:hover {
@@ -108,8 +113,9 @@ section:hover {
     transform: translateY(-3px);
 }
 
+
 /* =================================
-   TITELS
+   TITELS EN TEKST
 ================================= */
 
 h2,
@@ -131,18 +137,20 @@ p {
     margin-bottom: 0;
 }
 
+
 /* =================================
-   LINKS
+   LINKS IN DE TEKST
 ================================= */
 
 main a {
     color: #7de8d5;
-    transition: color 0.2s ease;
+    transition: 0.2s ease;
 }
 
 main a:hover {
     color: #65a7ff;
 }
+
 
 /* =================================
    AFBEELDINGEN
@@ -154,13 +162,133 @@ img {
     border-radius: 12px;
 }
 
+
 /* =================================
-   MOBIELE TELEFOONS VOOR MOOIERE OPMAAK
+   FOTO'S NAAST TEKST
 ================================= */
 
-@media (max-width: 600px) {
+/* Tekst en afbeelding naast elkaar */
+
+.tekst-met-afbeelding {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+/* De tekst naast de afbeelding */
+
+.tekst-met-afbeelding .tekst {
+    flex: 1;
+}
+
+/* De afbeelding met bronvermelding */
+
+.tekst-met-afbeelding .bron-afbeelding {
+    width: 40%;
+    max-width: 450px;
+    margin: 60px 0 0 0;
+    padding: 0;
+}
+
+/* De foto */
+
+.tekst-met-afbeelding .bron-afbeelding img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Onderschrift onder de foto */
+
+.tekst-met-afbeelding .bron-afbeelding figcaption {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 8px;
+    color: #bfcde0;
+}
+
+/* Link naar de bron van de foto */
+
+.tekst-met-afbeelding .bron-afbeelding figcaption a {
+    color: #70aaff;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.tekst-met-afbeelding .bron-afbeelding figcaption a:hover {
+    color: white;
+}
+
+
+/* =================================
+   BRONNENLIJST
+================================= */
+
+.bronnen {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 22px;
+    text-align: center;
+}
+
+.bronnen h2 {
+    color: #e5edf7;
+}
+
+.bronnen ul {
+    display: table;
+    margin: 0 auto;
+    padding-left: 25px;
+    text-align: left;
+}
+
+.bronnen li {
+    margin-bottom: 10px;
+}
+
+.bronnen a {
+    color: #40d9d0;
+    text-decoration: underline;
+}
+
+.bronnen a:hover {
+    color: white;
+}
+
+
+/* =================================
+   PYTHON CODEBLOKKEN
+================================= */
+
+pre {
+    background-color: #1e1e1e;
+    color: #eeeeee;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+pre code {
+    font-family: Consolas, monospace;
+    font-size: 14px;
+}
+
+
+/* =================================
+   MOBIELE TELEFOONS
+================================= */
+
+@media (max-width: 700px) {
+
     header {
         padding: 25px 18px;
+    }
+
+    header h1 {
+        font-size: 2rem;
     }
 
     nav {
@@ -181,41 +309,17 @@ img {
         padding: 20px;
         margin: 18px auto;
     }
-}
-/*=================================
-   BRONNEN
-================================= */
-.bronnen {
-    margin: 40px auto;
-    padding: 0 22px;
-    max-width: 1100px;
-    background: none;
-    border: none;
-    border-radius: 0;
-    text-align: center;
-}
 
-.bronnen h2 {
-    color: #e5edf7;
-}
+    /* Foto komt onder de tekst */
 
-.bronnen ul {
-    display: table;
-    margin: 0 auto;
-    padding-left: 25px;
-    text-align: left;
-}
+    .tekst-met-afbeelding {
+        flex-direction: column;
+        gap: 15px;
+    }
 
-.bronnen li {
-    margin-bottom: 10px;
-}
-
-
-.bronnen a {
-    color: #40d9d0;
-    text-decoration: underline;
-}
-
-.bronnen a:hover {
-    color: white;
+    .tekst-met-afbeelding .bron-afbeelding {
+        width: 100%;
+        max-width: 450px;
+        margin-top: 20px;
+    }
 }
