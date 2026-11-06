@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
   
-<header><h1>dna sequentie phtonhh ofzo</h1>
+<header><h1>DNA sequentie bepaling</h1>
 <h3>pagina navigatie</h3>
 <nav>
 <a href="index.html">Homepage</a>
@@ -20,15 +20,93 @@
   
 </header>
 <main>
-<section id='alina1'>
-    
-</section>
-  
-<section id='alina2'>
+<section class="alinea 1">
+<h2>DNA-sequentie vergelijking</h2>
+        <pre><code>def database_inlezen():
+    bacterien = []  # Hierin komen alle bacterien uit het bestand
 
-</section>
+    bestand = open("Basis_16S_sequentie_database.csv", "r")  # Opent het bestand met DNA-sequenties
 
-<section id='alina3'>
+    for regel in bestand:  # Leest het bestand regel voor regel
+        data = regel.strip().split(";")  # Haalt de enter weg en splitst de gegevens bij ;
+
+        naam = data[0].replace("ï»¿", "")  # Haalt vreemde tekens weg bij de naam
+        sequentie = data[1]  # Haalt de DNA-sequentie uit de regel
+
+        bacterien.append([naam, sequentie])  # Voegt de naam en sequentie toe aan de lijst
+
+    bestand.close()  # Sluit het bestand
+
+    return bacterien  # Geeft de lijst met bacterien terug
+
+
+def vergelijken(eigen_dna, bacterien):
+    beste_score = -1  # Houdt de hoogste score bij
+    naam_bacterie = ""  # Bewaart de naam van de beste bacterie
+    beste_stukje = ""  # Bewaart het best passende stukje DNA
+    lijntjes_regel = ""  # Bewaart de streepjes die overeenkomsten laten zien
+
+    for bacterie in bacterien:  # Bekijkt iedere bacterie uit de lijst
+        naam = bacterie[0]  # Haalt de naam van de bacterie op
+        sequentie = bacterie[1]  # Haalt de DNA-sequentie op
+
+        # Vergelijkt het eigen DNA met stukjes DNA van dezelfde lengte
+        for start in range(len(sequentie) - len(eigen_dna) + 1):
+            stukje = sequentie[start:start + len(eigen_dna)]  # Neemt een stukje DNA om te vergelijken
+
+            score = 0  # Begint de score voor dit stukje op nul
+            vergelijking = ""  # Maakt de regel met streepjes leeg
+
+            for i in range(len(eigen_dna)):  # Bekijkt elke letter van het eigen DNA
+                if eigen_dna[i] == stukje[i]:  # Controleert of de letters gelijk zijn
+                    score = score + 1  # Verhoogt de score bij een gelijke letter
+                    vergelijking = vergelijking + "|"  # Zet een streepje bij een overeenkomst
+                else:
+                    vergelijking = vergelijking + " "  # Zet een spatie bij een verschil
+
+            if score > beste_score:  # Controleert of dit de hoogste score tot nu toe is
+                beste_score = score  # Slaat de nieuwe hoogste score op
+                naam_bacterie = naam  # Slaat de naam van deze bacterie op
+                beste_stukje = stukje  # Slaat het best passende stukje DNA op
+                lijntjes_regel = vergelijking  # Slaat de streepjesregel op
+
+    return naam_bacterie, beste_stukje, lijntjes_regel, beste_score  # Geeft de resultaten terug
+
+
+def main():
+    eigen_dna = 'xxxCCCAxTCTAxxAxGxAGxxTxTxxxC'  # Het DNA dat je wilt vergelijken
+
+    bacterien = database_inlezen()  # Leest de bacterien uit het bestand
+
+    # Vergelijkt het eigen DNA met alle bacterien
+    naam, stukje, vergelijking, score = vergelijken(eigen_dna, bacterien)
+
+    print("Alignment met " + naam)  # Laat de naam van de beste bacterie zien
+    print(stukje)  # Laat het best passende stukje DNA zien
+    print(vergelijking)  # Laat zien waar de letters overeenkomen
+    print(eigen_dna)  # Laat je eigen DNA zien
+    print("Score:", score)  # Laat de hoogste score zien
+
+
+main()  # Start het programma</code></pre>
+
+
+<section class="alinea 2">
+    <h2>Resultaat</h2>
+
+    <p>
+        Uit de vergelijking blijkt dat het DNA het beste overeenkomt met
+        de bacterie <i>Mycolicibacterium gilvum</i>.
+        De score is 10. Dit betekent dat er 10 posities overeenkomen
+        tussen de twee DNA-sequenties.
+    </p>
+
+    <pre><code>Alignment met Mycolicibacterium gilvum
+GCAGCCGCGGTAATACGTAGGGTCCGAGC
+    ||    ||  | | ||  |     |
+xxxCCCAxTCTAxxAxGxAGxxTxTxxxC
+Score: 10</code></pre>
+</section>
 
 </section>
 </main> 
